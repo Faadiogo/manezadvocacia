@@ -14,9 +14,21 @@ export const metadata: Metadata = {
     icon: '/favicon_io/favicon.ico',
   },
   openGraph: {
-    images: ['/vde-pto.png'],
+    title: 'Mañez Advocacia & Consultoria',
+    description: 'Soluções jurídicas personalizadas e eficazes para você e sua empresa.',
+    url: 'https://manezadvocacia.vercel.app/',
+    type: 'website',
+    images: [
+      {
+        url: 'https://manezadvocacia.vercel.app/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Logo da Mañez Advocacia',
+      },
+    ],
   },
 };
+
 
 export default function RootLayout({
   children,

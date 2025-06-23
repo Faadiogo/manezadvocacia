@@ -2,9 +2,10 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { ArrowRight, Scale, Users, Award, CheckCircle, Phone, Mail, MapPin, Receipt, Building2, Handshake, House } from 'lucide-react';
+import { ArrowRight, Scale, Users, Award, CheckCircle, Phone, Mail, MapPin, Receipt, Building2, Handshake, House} from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import { FaWhatsapp } from "react-icons/fa";
 
 export default function HomePage() {
   const services = [
@@ -244,6 +245,51 @@ export default function HomePage() {
           </motion.div>
         </div>
       </section>
+
+      {/* Floating WhatsApp Button */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ 
+          duration: 0.8, 
+          delay: 1.5,
+          type: "spring",
+          stiffness: 200,
+          damping: 20
+        }}
+        className="fixed bottom-6 right-6 z-50"
+      >
+        <motion.a
+          href="https://wa.me/5511998860869?text=Olá! Gostaria de mais informações sobre os serviços jurídicos."
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group relative"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          {/* Pulse Animation Background */}
+          <motion.div
+            animate={{ scale: [1, 1.3, 1] }}
+            transition={{
+              duration: 1.8,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+            className="absolute inset-0 bg-green-500 rounded-full opacity-20"
+          />
+          
+          {/* Main Button */}
+          <div className="relative bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-all duration-300 group-hover:shadow-xl">
+            <FaWhatsapp className="h-6 w-6" />
+          </div>
+          
+          {/* Tooltip */}
+          <div className="absolute right-full mr-3 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white px-3 py-2 rounded-lg text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+            Fale conosco no WhatsApp
+            <div className="absolute left-full top-1/2 transform -translate-y-1/2 w-0 h-0 border-l-4 border-l-gray-800 border-y-4 border-y-transparent"></div>
+          </div>
+        </motion.a>
+      </motion.div>
     </div>
   );
 }
