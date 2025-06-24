@@ -13,6 +13,7 @@ interface AdminLayoutProps {
 export default function AdminLayout({ children }: AdminLayoutProps) {
   const [user, setUser] = useState<MockUser | null>(null);
   const [loading, setLoading] = useState(true);
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -48,8 +49,14 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <AdminSidebar user={user} />
-      <main className="ml-64 transition-all duration-300">
+      <AdminSidebar 
+        user={user} 
+        collapsed={sidebarCollapsed}
+        setCollapsed={setSidebarCollapsed}
+      />
+      <main className={`transition-all duration-300 p-6 ${
+        sidebarCollapsed ? 'ml-16' : 'ml-64'
+      }`}>
         {children}
       </main>
     </div>

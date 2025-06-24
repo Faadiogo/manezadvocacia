@@ -61,7 +61,7 @@ export default function UsersPage() {
     {
       id: '2',
       full_name: 'Simone Mañez',
-      email: 'maria@manezadvocacia.com.br',
+      email: 'simone@manezadvocacia.com.br',
       role: 'editor',
       created_at: '2024-01-05T00:00:00Z',
       last_login: '2024-01-19T14:20:00Z'
@@ -69,7 +69,15 @@ export default function UsersPage() {
     {
       id: '3',
       full_name: 'Vanessa Mañez',
-      email: 'carlos@manezadvocacia.com.br',
+      email: 'vanessa@manezadvocacia.com.br',
+      role: 'author',
+      created_at: '2024-01-10T00:00:00Z',
+      last_login: '2024-01-18T09:15:00Z'
+    },
+    {
+      id: '4',
+      full_name: 'Diego Ribeiro',
+      email: 'diego@manezadvocacia.com.br',
       role: 'author',
       created_at: '2024-01-10T00:00:00Z',
       last_login: '2024-01-18T09:15:00Z'
@@ -297,22 +305,24 @@ export default function UsersPage() {
           >
             <Card className="hover:shadow-lg transition-shadow duration-300">
               <CardHeader className="pb-3">
-                <div className="flex items-start justify-between">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-12 h-12 bg-brand-primary rounded-full flex items-center justify-center">
+                <div className="flex items-start justify-between gap-3">
+                  <div className="flex items-center space-x-3 min-w-0 flex-1">
+                    <div className="w-12 h-12 bg-brand-primary rounded-full flex items-center justify-center flex-shrink-0">
                       <User className="h-6 w-6 text-white" />
                     </div>
-                    <div>
-                      <CardTitle className="text-lg">{user.full_name}</CardTitle>
-                      <p className="text-sm text-gray-600 flex items-center">
-                        <Mail className="h-3 w-3 mr-1" />
-                        {user.email}
+                    <div className="min-w-0 flex-1">
+                      <CardTitle className="text-lg truncate">{user.full_name}</CardTitle>
+                      <p className="text-sm text-gray-600 flex items-center truncate">
+                        <Mail className="h-3 w-3 mr-1 flex-shrink-0" />
+                        <span className="truncate">{user.email}</span>
                       </p>
                     </div>
                   </div>
-                  <Badge className={getRoleColor(user.role)}>
-                    {getRoleLabel(user.role)}
-                  </Badge>
+                  <div className="flex-shrink-0">
+                    <Badge className={getRoleColor(user.role)}>
+                      {getRoleLabel(user.role)}
+                    </Badge>
+                  </div>
                 </div>
               </CardHeader>
               <CardContent>
