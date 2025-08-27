@@ -67,11 +67,14 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-brand-secondary/20 mt-6 pt-6 text-center opacity-80">
-          <p className="text-md mb-2">&copy; 2025 Mañez Advocacia & Consultoria. Todos os direitos reservados.</p>
-          <p className="text-sm text-white"> Desenvolvido por:
-            <a href="https://synctech.com.br" target="_blank" rel="noopener noreferrer"><br />
-              <img src="/logo-ret-bco.png" alt="Synctech" className="h-6 inline-block mt-2" />
-            </a>
+          <p>© {new Date().getFullYear()} Mañez Advocacia & Consultoria. Todos os direitos reservados. Desenvolvido por 
+          <a href="https://synctec.com.br" target="_blank" rel="noopener noreferrer">
+            <img 
+              src="/synctec-bco.png" 
+              alt="Synctec Logo" 
+              className="w-44 ml-2 inline-block hover:scale-105 transition-transform" 
+            />
+          </a>
           </p>
         </div>
       </div>

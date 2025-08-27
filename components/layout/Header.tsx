@@ -136,8 +136,8 @@ export default function Header() {
                     Painel
                   </Button>
                 </Link>
-                <Button variant="ghost" size="sm" onClick={handleSignOut}>
-                  <LogOut className="h-4 w-4 mr-2" />
+                <Button variant="ghost" size="sm" className="text-secondary" onClick={handleSignOut}>
+                  <LogOut className="h-4 w-4 mr-2 text-secondary hover:text-primary" />
                   Sair
                 </Button>
               </div>
